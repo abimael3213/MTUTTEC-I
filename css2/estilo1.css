@@ -1,0 +1,263 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    background-color: #f5f6fa;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background: linear-gradient(
+        to right,
+        #003366 ,
+        #512da8
+    );
+    color: white;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s;
+}
+
+.sidebar.collapsed {
+    width: 70px;
+}
+
+.sidebar.collapsed span {
+    display: none;
+}
+
+.sidebar.collapsed .logo h1 {
+    display: none;
+}
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 8px;
+    margin: 5px 0;
+}
+
+.menu li a:hover {
+    background-color: #34495e;
+    color: #ecf0f1;
+}
+
+.menu li a i {
+    width: 25px;
+    text-align: center;
+}
+
+.logout {
+    margin-top: auto;
+}
+
+.logout a {
+    color: #e74c3c !important;
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+    background-color: #ffffff;
+}
+
+.content.expanded {
+    margin-left: -180px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-info i {
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.progress {
+    background: #f0f2f5;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.notifications li {
+    padding: 10px;
+    margin: 5px 0;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.calendar-event {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+.event-date {
+    background: #e74c3c;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    min-width: 50px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+    }
+    
+    .sidebar span {
+        display: none;
+    }
+    
+    .logo h1 {
+        display: none;
+    }
+    
+    .content {
+        margin-left: -180px;
+    }
+.toggle-btn {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 1000;
+    background: #2c3e50;
+    border-radius: 5px;
+}
+
+.sidebar.collapsed .toggle-btn {
+    left: 20px;
+    background: transparent;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -250px;
+    }
+    
+    .sidebar.collapsed {
+        left: 0;
+        width: 250px;
+    }
+    
+    .content {
+        margin-left: 0 !important;
+    }
+    
+    .toggle-btn {
+        display: block !important;
+    }
+}
+.toggle-btn {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 1000;
+    background: #2c3e50;
+    border-radius: 5px;
+    display: none; 
+}
+
+.sidebar.collapsed .toggle-btn {
+    left: 20px;
+    background: transparent;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: -250px;
+        width: 250px;
+        height: 100vh;
+        z-index: 999;
+    }
+    
+    .sidebar.collapsed {
+        left: 0;
+    }
+    
+    .toggle-btn {
+        display: block !important;
+        background: #2c3e50;
+    }
+    
+    .content.expanded {
+        margin-left: 0 !important;
+    }
+}
+}

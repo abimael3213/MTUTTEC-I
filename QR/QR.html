@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de QR Code</title>
+    
+    <!-- Incluir la biblioteca QRCode.js -->
+    <script src=http://localhost:8383/Integradora/interfaces/registro.html></script>
+    
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        #qrcode {
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Generador de QR Code</h2>
+    <button onclick="generarQR()">Generar QR Code</button>
+    <div id="qrcode"></div>
+
+    <script>
+        function generarQR() {
+            // Limpiar contenedor previo
+            document.getElementById("qrcode").innerHTML = "";
+            
+            // Obtener la URL actual o especificar una diferente
+            const url = window.location.href; // Puedes cambiar esto por cualquier texto o URL
+            
+            // Generar el QR code
+            new QRCode(document.getElementById("qrcode"), {
+                text: url,
+                width: 200,
+                height: 200,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+    </script>
+</body>
+</html>
